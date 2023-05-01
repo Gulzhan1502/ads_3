@@ -1,32 +1,35 @@
+import java.util.Objects;
 public class MyTestingClass {
-    private String fname;
-    private String lname;
 
-    public MyTestingClass(String fname, String lname) {
-        this.fname = fname;
-        this.lname = lname;
-    }
-
-    public String getFname() {
-        return fname;
-    }
-
-    public String getLname() {
-        return lname;
+    private String studentId;
+    private int[] grade;
+    public MyTestingClass(String studentId, int[] grade) {
+        this.studentId = studentId;
+        this.grade = grade;
     }
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        String strKey = String.valueOf(this.fname + " " + this.lname);
-        for (int i = 0; i < strKey.length(); i++) {
-            hash += (int) strKey.charAt(i);
+        int result = 17;
+        for (int i = 0; i < grade.length; i++)
+        {
+            result = 31 * result + grade[i];
         }
-        return hash;
+        result = 31 * result + (studentId == null ? 0 : studentId.hashCode());
+        return result;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        MyTestingClass other = (MyTestingClass) obj;
+        return grade == other.grade && Objects.equals(studentId, other.studentId);
+    }
 
     @Override
     public String toString() {
-        return "%s".formatted(this.fname, this.lname);    }
+        return "MyTestingClass{" + "studentId='" + studentId + '\'' + ", grade=" + grade + '}';
+    }
+
 }

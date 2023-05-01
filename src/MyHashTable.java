@@ -42,7 +42,7 @@ public class MyHashTable<K, V> {
         int index = hashCode % M;
         return index;
     }
-    public void put (K key, V value) {
+    public  void put(K key, V value) {
         int index = hash(key);
         HashNode<K, V> node = chainArray[index];
 
