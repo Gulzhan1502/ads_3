@@ -13,10 +13,10 @@ public class Main {
             Integer value = random.nextInt(100);
             MyHashtable.put(test, value);
         }
+        MyHashtable.getBucketSizes();
 
 
     }
-
     private static String generateRandomStudentId() {
         String CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         int LENGTH = 7;
