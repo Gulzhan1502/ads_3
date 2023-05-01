@@ -116,6 +116,18 @@ public class MyHashTable<K, V> {
         }
         return null;// If the value is not found, return null
     }
+    public void getBucketSizes() {
+        for (int i = 0; i < M; i++) {
+            int bucketSize = 0;
+            HashNode<K, V> node = chainArray[i];
+
+            while (node != null) {
+                bucketSize++;
+                node = node.next;
+            }
+            System.out.println( bucketSize );
+        }
+    }
     }
 
 
