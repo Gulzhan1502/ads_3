@@ -38,8 +38,11 @@ public class MyHashTable<K, V> {
         }
     }
     private int hash (K key){
-        int hashCode = key.hashCode();
-        int index = hashCode % M;
+        int hashCode = Objects.hashCode(key);
+        int index = hashCode % chainArray.length;
+        if (index < 0) {
+            index += chainArray.length;
+        }
         return index;
     }
     public  void put(K key, V value) {

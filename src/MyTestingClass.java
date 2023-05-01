@@ -11,8 +11,7 @@ public class MyTestingClass {
     @Override
     public int hashCode() {
         int result = 17;
-        for (int i = 0; i < grade.length; i++)
-        {
+        for (int i = 0; i < grade.length; i++) {
             result = 31 * result + grade[i];
         }
         result = 31 * result + (studentId == null ? 0 : studentId.hashCode());
